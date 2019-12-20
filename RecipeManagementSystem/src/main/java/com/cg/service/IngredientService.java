@@ -6,8 +6,14 @@ import com.cg.dto.Ingredient;
 
 public interface IngredientService {
 	
+	Ingredient addIngredient(Ingredient ingredient);
+	
 	List<Ingredient> listIngredient();
 	
-	Ingredient searchByName (String ingredientName);
+	Ingredient searchIngredient (int id);
+	
+	List<Ingredient> searchByName (String ingredientName);
+	
+	boolean deleteById(int id);
 
 }
