@@ -38,10 +38,14 @@ public class IngredientController {
 	
 	@PostMapping(value = "/add")
 	public  ResponseEntity<?> addIngredient( @ModelAttribute Ingredient ing){
-		Ingredient temp = ing;
+		//Ingredient temp = ing;
 		
 		Ingredient ingredient = ingredientService.addIngredient(ing);
-		if(ingredient == null)
+		if(ingredient == null) {
+			return new ResponseEntity("Ingredient not Added", HttpStatus.INTERNAL_SERVER_ERROR);
+		} else {
+			return new ResponseEntity<Ingredient>(ingredient, HttpStatus.OK);
+		}
 	}
 	
 	
